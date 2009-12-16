@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+    <string id="0">XBMC歌词</string>
+    <string id="1">xbmc媒体中心</string>
+    <string id="2">Nuka1195</string>
+
+    <!-- User Messages -->
+    <string id="100">除</string>
+    <string id="101">文件</string>
+    <string id="102">嵌入式</string>
+
+    <!-- Settings labels -->
+    <string id="201">刮削器</string>
+    <string id="202">保存歌词</string>
+    <string id="203">保存目录</string>
+    <string id="204">歌词平滑滚动</string>
+    <string id="205">显示可视化效果</string>
+    <string id="206">仅使用文件名查找</string>
+    <string id="207">文件名格式</string>
+    <string id="208">播放列表目录</string>
+    <string id="209">乱序播放列表</string>
+    <string id="210">保持歌词文件兼容xbox</string>
+    <string id="211">保存歌词文件含扩展名</string>
+
+    <!-- Settings choices -->
+    <string id="2070">%A - %T</string>
+    <string id="2071">%A\%B\%T</string>
+    <string id="2072">%A\%B\%N %T</string>
+
+    <!-- Settings error messages -->
+    <string id="230">保存设置出错！</string>
+
+    <!-- Settings restart required message -->
+    <string id="240">重新启动前刮削器变更不会生效。</string>
+    <string id="241">现在重新启动 %s 吗？</string>
+
+    <!-- Settings buttons -->
+    <string id="250">确定</string>
+    <string id="251">取消</string>
+    <string id="252">修改</string>
+    <string id="253">制作人员</string>
+    <string id="254">播放音乐</string>
+    <string id="255">默认</string>
+
+    <string id="270">重新启动</string>
+    <string id="271">稍后</string>
+    
+    <!-- Special XBMC strings -->
+    <string id="589">舞会模式</string>
+    
+    <!-- Error messages -->
+    <string id="630">异常页面布局，无内置解析！</string>
+    <string id="631">歌手未找到！</string>
+    <string id="632">歌词未找到！</string>
+    <string id="633">找到空白页！</string>
+    <string id="638">你要让这个脚本干啥？</string>
+    <string id="639">没有音乐在播放！</string>
+
+    <!-- Credits -->
+    <string id="900">版本</string>
+    <string id="901">制作团队：</string>
+    <string id="902">外围制作人员：</string>
+    <string id="903">皮肤制作人员：</string>
+
+    <!-- Credits headings-->
+    <string id="910">首席开发员 &amp; 编码员</string>
+    <string id="911">原作者</string>
+    <string id="912">原版皮肤修改</string>
+    <string id="913">Unicode 支持</string>
+    <string id="914">语言文件</string>
+
+    <!-- Update messages -->
+    <string id="1000">已是最新版本。</string>
+    <string id="1001">获取当前标记的版本...</string>
+    <string id="1002">更新</string>
+    <string id="1003">要更新吗？</string>
+    <string id="1004">获取文件列表...</string>
+    <string id="1005">请稍候...</string>
+    <string id="1006">版本</string>
+    <string id="1007">获取：</string>
+    <string id="1008">目录：</string>
+    <string id="1009">文件：</string>
+    <string id="1010">新版本已存放在：</string>
+
+    <!-- Update error messages -->
+    <string id="1030">未找到所标记的版本！</string>
+    <string id="1031">更新脚本出现错误！</string>
+</strings>

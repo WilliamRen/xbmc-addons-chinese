@@ -1,0 +1,169 @@
+<window>
+    <defaultcontrol>30020</defaultcontrol>
+	<animation effect="fade" time="200">WindowOpen</animation>
+	<animation effect="fade" time="200">WindowClose</animation>
+	<coordinates>
+		<system>1</system>
+		<posx>50</posx>
+		<posy>25</posy>
+	</coordinates>
+	<controls>
+		<control type="image">
+			<description>background image</description>
+			<posx>25</posx>
+			<posy>35</posy>
+			<width>570</width>
+			<height>485</height>
+			<texture border="20,10,10,30">dialog-panel.png</texture>
+		</control>
+		<control type="label" id="4">
+			<description>Item Title</description>
+			<posx>0</posx>
+			<posy>45</posy>
+			<width>590</width>
+			<height>30</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+		<control type="group">
+			<posx>40</posx>
+			<posy>90</posy>
+			<height>420</height>
+			<width>540</width>
+			<visible>true</visible>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>550</width>
+				<height>2</height>
+				<texture>separator.png</texture>
+			</control>
+            <control type="image" id="100">
+				<posx>0</posx>
+				<posy>28</posy>
+				<width>550</width>
+				<height>300</height>
+				<texture></texture>
+			</control>
+            <control type="image">
+				<posx>0</posx>
+				<posy>360</posy>
+				<width>550</width>
+				<height>2</height>
+				<texture>separator.png</texture>
+			</control>
+		</control>
+		<control type="group">
+			<posx>10</posx>
+			<posy>469</posy>
+			<height>40</height>
+			<visible>true</visible>
+			<control type="button" id="20">
+				<description>minutely</description>
+				<posx>35</posx>
+				<posy>0</posy>
+				<width>80</width>
+				<height>25</height>
+				<label>分时线</label>
+				<font>font12</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texturenofocus border="3">button-nofocus.png</texturenofocus>
+				<texturefocus border="3">button-focus.png</texturefocus>
+				<onleft>24</onleft>
+				<onright>21</onright>
+				<onup>61</onup>
+				<ondown>61</ondown>
+			</control>
+			<control type="button" id="21">
+				<description>daily</description>
+				<posx>125</posx>
+				<posy>0</posy>
+				<width>80</width>
+				<height>25</height>
+				<label>日K线</label>
+				<font>font12</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texturenofocus border="3">button-nofocus.png</texturenofocus>
+				<texturefocus border="3">button-focus.png</texturefocus>
+				<onleft>20</onleft>
+				<onright>22</onright>
+				<onup>61</onup>
+				<ondown>61</ondown>
+			</control>
+			<control type="button" id="22">
+				<description>weekly</description>
+				<posx>215</posx>
+				<posy>0</posy>
+				<width>80</width>
+				<height>25</height>
+				<label>周K线</label>
+				<font>font12</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texturenofocus border="3">button-nofocus.png</texturenofocus>
+				<texturefocus border="3">button-focus.png</texturefocus>
+				<onleft>21</onleft>
+				<onright>23</onright>
+				<onup>61</onup>
+				<ondown>61</ondown>
+			</control>
+			<control type="button" id="23">
+				<description>monthly</description>
+				<posx>310</posx>
+				<posy>0</posy>
+				<width>80</width>
+				<height>25</height>
+				<label>月K线</label>
+				<font>font12</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texturenofocus border="3">button-nofocus.png</texturenofocus>
+				<texturefocus border="3">button-focus.png</texturefocus>
+				<onleft>22</onleft>
+				<onright>24</onright>
+				<onup>61</onup>
+				<ondown>61</ondown>
+			</control>
+			<control type="button" id="24">
+				<description>detail</description>
+				<posx>400</posx>
+				<posy>0</posy>
+				<width>80</width>
+				<height>25</height>
+				<label>详细信息</label>
+				<font>font12</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texturenofocus border="3">button-nofocus.png</texturenofocus>
+				<texturefocus border="3">button-focus.png</texturefocus>
+				<onleft>23</onleft>
+				<onright>25</onright>
+				<onup>61</onup>
+				<ondown>61</ondown>
+			</control>
+			<control type="button" id="25">
+				<description>join</description>
+				<posx>490</posx>
+				<posy>0</posy>
+				<width>80</width>
+				<height>25</height>
+				<label>加入自选</label>
+				<font>font12</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texturenofocus border="3">button-nofocus.png</texturenofocus>
+				<texturefocus border="3">button-focus.png</texturefocus>
+				<onleft>24</onleft>
+				<onright>20</onright>
+				<onup>24</onup>
+				<ondown>20</ondown>
+			</control>
+		</control>
+	</controls>
+    
+</window>

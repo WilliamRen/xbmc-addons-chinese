@@ -1,0 +1,576 @@
+<window>
+    <defaultcontrol>30030</defaultcontrol>
+	<animation effect="fade" time="200">WindowOpen</animation>
+	<animation effect="fade" time="200">WindowClose</animation>
+	<coordinates>
+		<system>1</system>
+		<posx>50</posx>
+		<posy>25</posy>
+	</coordinates>
+	<controls>
+		<control type="image">
+			<description>background image</description>
+			<posx>25</posx>
+			<posy>35</posy>
+			<width>570</width>
+			<height>485</height>
+			<texture border="20,10,10,30">dialog-panel.png</texture>
+		</control>
+		<control type="label" id="4">
+			<description>Item Title</description>
+			<posx>0</posx>
+			<posy>45</posy>
+			<width>590</width>
+			<height>30</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+		<control type="group">
+			<posx>40</posx>
+			<posy>90</posy>
+			<height>420</height>
+			<width>540</width>
+			<visible>true</visible>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>550</width>
+				<height>2</height>
+				<texture>separator.png</texture>
+			</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>20</posx>
+			<posy>40</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>当前价格:</label>
+			<font>font14</font>
+		</control>
+		<control type="label" id="40">
+			<description>cur price</description>
+			<posx>100</posx>
+			<posy>38</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font-35</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>20</posx>
+			<posy>60</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>涨跌幅:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="39">
+			<description>cur price</description>
+			<posx>70</posx>
+			<posy>60</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>120</posx>
+			<posy>60</posy>
+			<width>50</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>涨跌:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="38">
+			<description>cur price</description>
+			<posx>170</posx>
+			<posy>60</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>240</posx>
+			<posy>20</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>昨日收盘:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="41">
+			<description>cur price</description>
+			<posx>330</posx>
+			<posy>20</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>400</posx>
+			<posy>20</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>今日开盘:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="42">
+			<description>cur price</description>
+			<posx>480</posx>
+			<posy>20</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>240</posx>
+			<posy>40</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>最高成交:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="43">
+			<description>cur price</description>
+			<posx>330</posx>
+			<posy>40</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>400</posx>
+			<posy>40</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>最低成交:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="44">
+			<description>cur price</description>
+			<posx>480</posx>
+			<posy>40</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>240</posx>
+			<posy>60</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>成交量:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="45">
+			<description>cur price</description>
+			<posx>330</posx>
+			<posy>60</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>400</posx>
+			<posy>60</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>成交金额:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="46">
+			<description>cur price</description>
+			<posx>480</posx>
+			<posy>60</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>100</posy>
+				<width>550</width>
+				<height>2</height>
+				<texture>separator.png</texture>
+			</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>0</posx>
+			<posy>105</posy>
+			<width>500</width>
+			<height>30</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>五档盘口</label>
+			<font>font14</font>
+		</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>140</posy>
+				<width>550</width>
+				<height>2</height>
+				<texture>separator.png</texture>
+			</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>40</posx>
+			<posy>160</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>买一（元/手）:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="51">
+			<description>cur price</description>
+			<posx>150</posx>
+			<posy>160</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>300</posx>
+			<posy>160</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>卖一（元/手）:</label>
+			<font>font14</font>
+		</control>  
+        <control type="label" id="61">
+			<description>cur price</description>
+			<posx>400</posx>
+			<posy>160</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>        
+        <control type="label">
+			<description>cur price</description>
+			<posx>40</posx>
+			<posy>180</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>买二（元/手）:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="52">
+			<description>cur price</description>
+			<posx>150</posx>
+			<posy>180</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>300</posx>
+			<posy>180</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>卖二（元/手）:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="62">
+			<description>cur price</description>
+			<posx>400</posx>
+			<posy>180</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>40</posx>
+			<posy>200</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>买三（元/手）:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="53">
+			<description>cur price</description>
+			<posx>150</posx>
+			<posy>200</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>300</posx>
+			<posy>200</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>卖三（元/手）:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="63">
+			<description>cur price</description>
+			<posx>400</posx>
+			<posy>200</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>40</posx>
+			<posy>220</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>买四（元/手）:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="54">
+			<description>cur price</description>
+			<posx>150</posx>
+			<posy>220</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>300</posx>
+			<posy>220</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>卖四（元/手）:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="64">
+			<description>cur price</description>
+			<posx>400</posx>
+			<posy>220</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>40</posx>
+			<posy>240</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>买五（元/手）:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="55">
+			<description>cur price</description>
+			<posx>150</posx>
+			<posy>240</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>
+        <control type="label">
+			<description>cur price</description>
+			<posx>300</posx>
+			<posy>240</posy>
+			<width>100</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label>卖五（元/手）:</label>
+			<font>font14</font>
+		</control>
+        <control type="label" id="65">
+			<description>cur price</description>
+			<posx>400</posx>
+			<posy>240</posy>
+			<width>70</width>
+			<height>30</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>0xFFFFFFFF</textcolor>
+			<label></label>
+			<font>font14</font>
+		</control>        
+            <control type="image">
+				<posx>0</posx>
+				<posy>360</posy>
+				<width>550</width>
+				<height>2</height>
+				<texture>separator.png</texture>
+			</control>
+		</control>
+		<control type="group">
+			<posx>10</posx>
+			<posy>469</posy>
+			<height>40</height>
+			<visible>true</visible>
+			<control type="button" id="22">
+				<description>weekly</description>
+				<posx>250</posx>
+				<posy>0</posy>
+				<width>100</width>
+				<height>25</height>
+				<label>K线</label>
+				<font>font12</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texturenofocus border="3">button-nofocus.png</texturenofocus>
+				<texturefocus border="3">button-focus.png</texturefocus>
+				<onleft>23</onleft>
+				<onright>23</onright>
+				<onup>23</onup>
+				<ondown>23</ondown>
+			</control>
+			<control type="button" id="23">
+				<description>monthly</description>
+				<posx>360</posx>
+				<posy>0</posy>
+				<width>100</width>
+				<height>25</height>
+				<label>加入自选</label>
+				<font>font12</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texturenofocus border="3">button-nofocus.png</texturenofocus>
+				<texturefocus border="3">button-focus.png</texturefocus>
+				<onleft>22</onleft>
+				<onright>22</onright>
+				<onup>22</onup>
+				<ondown>22</ondown>
+			</control>
+        </control>
+	</controls>
+    
+</window>

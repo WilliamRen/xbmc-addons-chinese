@@ -1,0 +1,16 @@
+﻿# -*- coding: cp936 -*-
+import sys
+import os
+import xbmc
+import xbmcgui
+import xbmcplugin
+import urllib
+import re
+from mystocks_lib import *
+
+class Main:
+    def __init__( self ):
+        addDir(u'我的自选'.encode('utf8'),'','show_info','',True)
+        addDir(u'大盘指数'.encode('utf8'),'','show_dp','',True)
+        addDir(u'股票搜索'.encode('utf8'),'','show_search','',True)
+        xbmcplugin.endOfDirectory(int(sys.argv[1]))

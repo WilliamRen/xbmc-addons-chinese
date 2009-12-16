@@ -1,0 +1,31 @@
+﻿<!--
+Add Feeds Below
+Use current feeds as example.
+Order of input below does not matter... Feeds will be ordered alphabetically when listed.
+Except Categories will remain in the same order as set here.
+
+New Custom backgrounds for category see 1st category for example
+ -->
+<RSSreader>
+            <feed>
+                <link>http://rss.sina.com.cn/news/marquee/ddt.xml</link>
+                <name>新浪新闻</name>
+                <contextStart>&lt;div class=\"blkContainerSblkCon\" id=\"artibody\"&gt;</contextStart>
+                <contextEnd>&lt;!-- publish_helper_end --&gt;</contextEnd>
+                <thumb>sina-logo.png</thumb>
+            </feed>
+            <feed>
+                <link>http://news.163.com/special/00011K6L/rss_newstop.xml</link>
+                <name>163 新闻</name>
+                <contextStart>&lt;span class=\"info\"&gt;</contextStart>
+                <contextEnd>&lt;a href=\"http://news.163.com/\"&gt;</contextEnd>
+                <thumb>163_logo.gif</thumb>
+            </feed>
+            <feed>
+                <link>http://news.ifeng.com/pubres/rss/mil/4/feed.xml</link>
+                <name>凤凰军事</name>
+                <contextStart>&lt;DIV id=artical_real&gt;</contextStart>
+                <contextEnd>&lt;div id=\"docKeywords\"&gt;</contextEnd>
+                <thumb>163_logo.gif</thumb>
+            </feed>
+</RSSreader>
