@@ -5,7 +5,7 @@ import string
 import tempfile,urllib2,urllib,struct,gzip,StringIO,md5,xml.dom.minidom
 __scriptname__ = "ShooterSub"
 __author__ = "rabbitgg"
-__version__ = "0.12"
+__version__ = "0.15"
 
 
 class CustomLoader:
@@ -170,6 +170,7 @@ else:
                 desLen = struct.unpack('!L',the_page[nowPos:nowPos+4])
                 #print "描述长度："
                 #print desLen[0]
+                subPack = ord(the_page[nowPos+4:nowPos+5])
                 nowPos += desLen[0] + 13
                 # 扩展名长度
                 #print repr(the_page[nowPos:nowPos+4])
@@ -185,7 +186,7 @@ else:
                 nowPos += 4
                 #print "文件长度："
                 #print fileLen[0]
-                #print "描述长度是：%d,扩展名长度：%d,扩展名：%s,文件长度：%d" % (desLen[0],extLen[0],fileExt,fileLen[0])
+                print "描述长度是：%d,扩展名长度：%d,扩展名：%s,文件长度：%d" % (desLen[0],extLen[0],fileExt,fileLen[0])
                 
                 fileName = movieFullPath[:-4] + '.chs' + str(i) +'.' + fileExt
                 #print fileName
@@ -195,16 +196,69 @@ else:
                 else:
                    zip_file = open(fileName,'wb')
                 
-                
+                #处理压缩文件
                 if ((ord(org_file[0]) == 31) and (ord(org_file[1]) == 139) and (ord(org_file[2]) == 8)) :
                     compressedstream = StringIO.StringIO(org_file)
                     f = gzip.GzipFile(fileobj=compressedstream)      
                     data = f.read()
-                    zip_file.write(data)
+                    #是UTF-16编码
+                    if((ord(data[0]) == 255) and (ord(data[1]) == 254)):
+                        temp_data = unicode(data[2:],'utf-16')
+                        zip_file.write(temp_data.encode('gbk'))
+                    else:
+                        zip_file.write(data)
                 else:
-                    zip_file.write(the_page[nowPos:nowPos+fileLen[0]])
+                    data = the_page[nowPos:nowPos+fileLen[0]]
+                    #是UTF-16编码
+                    if((ord(data[0]) == 255) and (ord(data[1]) == 254)):
+                        temp_data = unicode(data[2:],'utf-16')
+                        zip_file.write(temp_data.encode('gbk'))
+                    else:
+                        zip_file.write(data)
+                    #zip_file.write(the_page[nowPos:nowPos+fileLen[0]])
                 zip_file.close()
                 nowPos += fileLen[0]
+                
+                if(subPack > 1):
+                    extLen = struct.unpack('!L',the_page[nowPos+4:nowPos+8])
+                    nowPos += 8
+                   # 文件扩展名
+                    fileExt = the_page[nowPos:nowPos+extLen[0]]
+                    nowPos += extLen[0]
+                    #print fileExt
+                    fileLen = struct.unpack('!L',the_page[nowPos:nowPos+4])
+                    nowPos += 4
+                    fileName = movieFullPath[:-4] + '.chs' + str(i) +'.' + fileExt
+                    #print fileName
+                    org_file = the_page[nowPos:nowPos+fileLen[0]]
+                    if(hasPath == 'True'):
+                       zip_file = open(os.path.join(pathName,os.path.basename(fileName)),'wb')
+                    else:
+                       zip_file = open(fileName,'wb')
+                       
+                    #处理压缩文件
+                    if ((ord(org_file[0]) == 31) and (ord(org_file[1]) == 139) and (ord(org_file[2]) == 8)) :
+                        compressedstream = StringIO.StringIO(org_file)
+                        f = gzip.GzipFile(fileobj=compressedstream)      
+                        data = f.read()
+                        #是UTF-16编码
+                        if((ord(data[0]) == 255) and (ord(data[1]) == 254)):
+                            temp_data = unicode(data[2:],'utf-16')
+                            zip_file.write(temp_data.encode('gbk'))
+                        else:
+                            zip_file.write(data)
+                    else:
+                        data = the_page[nowPos:nowPos+fileLen[0]]
+                        #是UTF-16编码
+                        if((ord(data[0]) == 255) and (ord(data[1]) == 254)):
+                            temp_data = unicode(data[2:],'utf-16')
+                            zip_file.write(temp_data.encode('gbk'))
+                        else:
+                            zip_file.write(data)
+                        #zip_file.write(the_page[nowPos:nowPos+fileLen[0]])
+                    zip_file.close()
+                    nowPos += fileLen[0]
+                    
                 if(hasPath == 'True'):
                    xbmc.Player().setSubtitles(os.path.join(pathName,os.path.basename(fileName)))
                 else:
