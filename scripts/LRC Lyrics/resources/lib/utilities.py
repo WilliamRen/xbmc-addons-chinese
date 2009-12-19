@@ -141,10 +141,10 @@ class Settings:
         LOG( LOG_NOTICE, "%s (ver: %s) used default settings", __scriptname__, __version__ )
         settings = {}
         defaults = {  
-            "scraper": "lyricwikiapi",
+            "scraper": "ttplayer",
             "save_lyrics": True,
             "lyrics_path": os.path.join( BASE_DATA_PATH, "lyrics" ),
-            "smooth_scrolling": False,
+            "smooth_scrolling": True,
             "show_viz": True,
             "use_filename": False,
             "filename_format": 0,
