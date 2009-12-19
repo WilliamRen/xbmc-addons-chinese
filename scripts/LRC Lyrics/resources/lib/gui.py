@@ -351,10 +351,14 @@ class GUI( xbmcgui.WindowXMLDialog ):
                 print "Artist" + artist                
                 if ( song and ( not artist or self.settings[ "use_filename" ] ) ):
                     artist, song = self.get_artist_from_filename( xbmc.Player().getPlayingFile() )
-                if ( song and ( self.song != song or self.artist != artist or force_update ) ):
-                    self.artist = artist
-                    self.song = song
-                    self.get_lyrics( artist, song )
+                if ( song ):
+                    if ( self.song != song or self.artist != artist or force_update ):
+                        self.artist = artist
+                        self.song = song
+                        self.get_lyrics( artist, song )
+                    else:
+                        if (self.allowtimer and self.settings[ "smooth_scrolling" ] and self.getControl( 110 ).size() > 1):
+                            self.refresh()
                     break
                 xbmc.sleep( 50 )
 
