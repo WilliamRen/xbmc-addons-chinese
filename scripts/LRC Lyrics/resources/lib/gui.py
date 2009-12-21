@@ -213,9 +213,6 @@ class GUI( xbmcgui.WindowXMLDialog ):
             if ( self.settings[ "save_lyrics" ] and save ): success = self.save_lyrics_to_file( lyrics )
         self.show_control( 100 + ( self.settings[ "smooth_scrolling" ] * 10 ) )
         if (self.allowtimer and self.settings[ "smooth_scrolling" ] and self.getControl( 110 ).size() > 1):
-            self.lock.acquire()
-            if (self.timer != None): self.timer.cancel()
-            self.lock.release()
             self.refresh()
 
     def parser_lyrics( self, lyrics):
@@ -357,6 +354,9 @@ class GUI( xbmcgui.WindowXMLDialog ):
                 if ( song and ( self.song != song or self.artist != artist or force_update ) ):
                     self.artist = artist
                     self.song = song
+                    self.lock.acquire()
+                    if (self.timer != None): self.timer.cancel()
+                    self.lock.release()
                     self.get_lyrics( artist, song )
                     break
                 xbmc.sleep( 50 )
