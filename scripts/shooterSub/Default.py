@@ -5,7 +5,7 @@ import string
 import tempfile,urllib2,urllib,struct,gzip,StringIO,md5,xml.dom.minidom
 __scriptname__ = "ShooterSub"
 __author__ = "rabbitgg"
-__version__ = "0.15"
+__version__ = "0.20"
 
 
 class CustomLoader:
@@ -48,11 +48,11 @@ class CustomLoader:
             node = stock.getElementsByTagName("destCode")[0]
             self.currfeed.append(self.getText(node))
 
-if  not xbmc.getCondVisibility('videoplayer.isfullscreen') :
-
+#if  not xbmc.getCondVisibility('videoplayer.isfullscreen') :
+if  not xbmc.Player().isPlayingVideo():
     import xbmcgui
     dialog = xbmcgui.Dialog()
-    selected = dialog.ok("ShooterSub", "这个脚本需要从播放菜单中执行".decode('gbk').encode('utf8') ,"更多具体信息请访问： ".decode('gbk').encode('utf8'), "http://bbs.htpc1.com/forum-225-1.html".decode('gbk').encode('utf8') )
+    selected = dialog.ok("ShooterSub", "请先播放一个视频再执行这个脚本，或从播放菜单中执行".decode('gbk').encode('utf8') ,"更多具体信息请访问： ".decode('gbk').encode('utf8'), "http://bbs.htpc1.com/forum-225-1.html".decode('gbk').encode('utf8') )
 else:
     window = False
     skin = "main"
@@ -147,8 +147,6 @@ else:
         realData += '--' + Boundary + '\r\n' + dataValue + "\"filehash\"\r\n\r\n" + strHash + '\r\n'
         realData += '--' + Boundary + '--\r\n'
 
-        #print realData
-        #print len(realData)
 
         req = urllib2.Request(url, realData, headers)
         response = urllib2.urlopen(req)
@@ -168,25 +166,20 @@ else:
                 nowPos += 4
                 # 描述长度
                 desLen = struct.unpack('!L',the_page[nowPos:nowPos+4])
-                #print "描述长度："
-                #print desLen[0]
+                nowPos += desLen[0] + 4
                 subPack = ord(the_page[nowPos+4:nowPos+5])
-                nowPos += desLen[0] + 13
+                nowPos += 9
                 # 扩展名长度
                 #print repr(the_page[nowPos:nowPos+4])
                 extLen = struct.unpack('!L',the_page[nowPos:nowPos+4])
                 nowPos += 4
-                #print "扩展名长度："
-                #print extLen[0]
                 # 文件扩展名
                 fileExt = the_page[nowPos:nowPos+extLen[0]]
                 nowPos += extLen[0]
                 #print fileExt
                 fileLen = struct.unpack('!L',the_page[nowPos:nowPos+4])
                 nowPos += 4
-                #print "文件长度："
-                #print fileLen[0]
-                print "描述长度是：%d,扩展名长度：%d,扩展名：%s,文件长度：%d" % (desLen[0],extLen[0],fileExt,fileLen[0])
+                #print "描述长度是：%d,扩展名长度：%d,扩展名：%s,文件长度：%d" % (desLen[0],extLen[0],fileExt,fileLen[0])
                 
                 fileName = movieFullPath[:-4] + '.chs' + str(i) +'.' + fileExt
                 #print fileName
@@ -273,3 +266,4 @@ else:
             import xbmcgui
             dialog = xbmcgui.Dialog()
             selected = dialog.ok("ShooterSub","对不起！没有找到字幕文件".decode('gbk').encode('utf8') )
+            if xbmc.getCondVisibility('Player.Paused'): xbmc.Player().pause() # if Paused, un-pause
