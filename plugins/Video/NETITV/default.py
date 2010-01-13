@@ -249,7 +249,7 @@ def Movies(url,name,thumb):
         if len(match1)==1:
 	        li=xbmcgui.ListItem(u'播放：'.encode('utf8')+name,iconImage='', thumbnailImage=thumb)
 	        li.setInfo(type="Video",infoLabels={"Title":name,"Director":director,"Studio":studio,"Plot":plot})
-	        xbmcplugin.addDirectoryItem(int(sys.argv[1]),match1[0][1].replace('vods.netitv.com','202.104.106.141'),li)
+	        xbmcplugin.addDirectoryItem(int(sys.argv[1]),match1[0][1],li)
 
         elif len(match1)>1:
                 num=0
@@ -258,7 +258,7 @@ def Movies(url,name,thumb):
                        fullname=name+u' 【第'.encode('utf8')+str(num)+u'集】'.encode('utf8')
                        li=xbmcgui.ListItem(u'播放：'.encode('utf8')+fullname,iconImage='', thumbnailImage=thumb)
                        li.setInfo(type="Video",infoLabels={"Title":fullname,"Director":director,"Studio":studio,"Plot":plot})
-                       xbmcplugin.addDirectoryItem(int(sys.argv[1]),info.replace('vods.netitv.com','202.104.106.141'),li)
+                       xbmcplugin.addDirectoryItem(int(sys.argv[1]),info,li)
 
 
 def PlayTV(url,name):
