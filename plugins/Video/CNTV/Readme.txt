@@ -6,7 +6,5 @@ XBMC插件网络视听系列
 播 放 器：内置
 
 插件路径：
-XP、2003：C:\Documents and Settings\User\Application Data\XBMC\plugins\music
-VISTA、WIN7：…\Application Data\XBMC\plugins\music
-
-备注：目前只做了爱西柚，爱直播和爱布谷我会尽快上线。
+XP、2003：C:\Documents and Settings\User\Application Data\XBMC\plugins\video\
+VISTA、WIN7：C:\Users\User\AppData\Roaming\XBMC\plugins\Video\
