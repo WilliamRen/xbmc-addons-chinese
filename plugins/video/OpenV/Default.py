@@ -1,13 +1,13 @@
-# -*- coding: cp936 -*-
+ï»¿# -*- coding: utf-8 -*-
 import urllib,urllib2,re,xbmcplugin,xbmcgui,xbmc,os
 
 #OpenV - by Robinttt 2009.
 
 def CATEGORIES():
-         addDir(u'µçÓ°'.encode('utf8'),'http://hd.openv.com/index_list-3.html',1,'')
-         addDir(u'µçÊÓ¾ç'.encode('utf8'),'http://hd.openv.com/index_list-2.html',1,'')
-         #addDir(u'µçÊÓ½ÚÄ¿'.encode('utf8'),'http://tv.openv.com/tv_all.php',1,'')
-         #addDir(u'ÓÎÏ·'.encode('utf8'),'http://game.openv.com/',1,'')
+         addDir(u'ç”µå½±'.encode('utf8'),'http://hd.openv.com/index_list-3.html',1,'')
+         addDir(u'ç”µè§†å‰§'.encode('utf8'),'http://hd.openv.com/index_list-2.html',1,'')
+         #addDir(u'ç”µè§†èŠ‚ç›®'.encode('utf8'),'http://tv.openv.com/tv_all.php',1,'')
+         #addDir(u'æ¸¸æˆ'.encode('utf8'),'http://game.openv.com/',1,'')
 
 
 def Channels(url,name):
@@ -56,13 +56,13 @@ def ChannelsB(url,name):
          link=re.sub('\n','',link)
          link=re.sub('\t','',link)
          link=re.sub(' ','',link)
-         if name.find(u'Ê××ÖÄ¸'.encode('utf8'))==-1:
-                 match=re.compile('<atitle=""href="(.+?)"><span>'+u'°´×îĞÂÅÅĞò'.encode('utf8')+'</span>').findall(link)
-                 addDir(name+'>'+u'×îĞÂ'.encode('utf8'),'http://hd.openv.com/'+match[0],4,'')
-                 match=re.compile('<atitle=""href="(.+?)"><span>'+u'°´×îÈÈÅÅĞò'.encode('utf8')+'</span>').findall(link)
-                 addDir(name+'>'+u'×îÈÈ'.encode('utf8'),'http://hd.openv.com/'+match[0],4,'')
+         if name.find(u'é¦–å­—æ¯'.encode('utf8'))==-1:
+                 match=re.compile('<atitle=""href="(.+?)"><span>'+u'æŒ‰æœ€æ–°æ’åº'.encode('utf8')+'</span>').findall(link)
+                 addDir(name+'>'+u'æœ€æ–°'.encode('utf8'),'http://hd.openv.com/'+match[0],4,'')
+                 match=re.compile('<atitle=""href="(.+?)"><span>'+u'æŒ‰æœ€çƒ­æ’åº'.encode('utf8')+'</span>').findall(link)
+                 addDir(name+'>'+u'æœ€çƒ­'.encode('utf8'),'http://hd.openv.com/'+match[0],4,'')
          else:
-                 addDir(u'µ±Ç°Î»ÖÃ£º'.encode('utf8')+name,'',20,'')
+                 addDir(u'å½“å‰ä½ç½®ï¼š'.encode('utf8')+name,'',20,'')
                  match=re.compile('<divclass="zmpx_one">(.+?)</div></div>').findall(link)
                  match0=re.compile('href="(.+?)"(.+?)>(.+?)</a>').findall(match[0])
                  for i in range(0,len(match0)):
@@ -87,7 +87,7 @@ def Lists(url,name):
          link=re.sub(' ','',link)
 
          match=re.compile('<title>(.+?)</title>').findall(link)
-         addDir(u'µ±Ç°Î»ÖÃ£º'.encode('utf8')+match[0],'',20,'')
+         addDir(u'å½“å‰ä½ç½®ï¼š'.encode('utf8')+match[0],'',20,'')
 
          match=re.compile('<divclass="img"><ahref="(.+?)"target="_hdplay"><img(.+?)="(.+?)"src="(.+?)"').findall(link)
          for i in range(0,len(match)):
@@ -102,7 +102,7 @@ def Lists(url,name):
          match0=re.compile('href="(.+?)">(.+?)</a>').findall(match[0])
          for url1,name1 in match0:
                  if url1.find('"class="nob')==-1:
-                         addDir(u'µÚ'.encode('utf8')+name1+u'Ò³'.encode('utf8'),'http://hd.openv.com/'+url1,4,'')
+                         addDir(u'ç¬¬'.encode('utf8')+name1+u'é¡µ'.encode('utf8'),'http://hd.openv.com/'+url1,4,'')
                  else:
                          url1=url1.replace('"class="nob','')
                          addDir(name1,'http://hd.openv.com/'+url1,4,'')
@@ -124,13 +124,10 @@ def ListsA(url,name):
          match=re.compile('<divclass="ct">(.+?)</ul>').findall(link)
          match0=re.compile('href="tv_play-(.+?).html">(.+?)</a>').findall(match[0])
          for i in range(0,len(match0)):
-                addLink(name+u'¡¾'.encode('utf8')+match0[i][1]+u'¡¿'.encode('utf8'),'http://casting.openv.com/PLGS/plgs.php?pid='+match0[i][0],5,'')
+                addLink(name+u'ã€'.encode('utf8')+match0[i][1]+u'ã€‘'.encode('utf8'),'http://casting.openv.com/PLGS/plgs.php?pid='+match0[i][0],5,'')
          match0=re.compile('href="tv_play-(.+?).html"title="(.+?)"').findall(match[0])
          for i in range(0,len(match0)):
                 if match0[i][0]!='__': addLink(match0[i][1],'http://casting.openv.com/PLGS/plgs.php?pid='+match0[i][0],5,'')
-
-
-
 
 def PlayVideo(url,name):
 	 if xbmcplugin.getSetting("dvdplayer") == "true":
@@ -152,10 +149,6 @@ def PlayVideo(url,name):
                  playlist.add(match[i], listitem)
 
          xbmc.Player(player_type).play(playlist)
-
-
-
-
                 
 def get_params():
         param=[]
@@ -249,3 +242,4 @@ elif mode==7:
         ListsB(url,name)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
+
