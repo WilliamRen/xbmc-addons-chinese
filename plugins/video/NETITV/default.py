@@ -1,7 +1,7 @@
-# -*- coding: cp936 -*-
+Ôªø# -*- coding: utf-8 -*-
 import xbmc, xbmcgui, xbmcplugin, urllib2, urllib, re, string, sys, os
 
-#NETITV(ÃÏ“Ì∏ﬂ«Â) by robinttt,2010
+#NETITV(Â§©ÁøºÈ´òÊ∏Ö) by robinttt,2010
 
 def Roots():
         url='http://www.netitv.com/channel.xml'
@@ -26,13 +26,13 @@ def Roots():
                         if len(match1)>0:
                                 if match1[0].find('CDATA')==-1:
                                          tmppic=match1[0].split('/')
-                                         if os.path.isfile(os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1]) == False:
-                                                 urllib.urlretrieve('http://www.netitv.com'+match1[0],os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1])
-                                         thumbp=os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1]
+                                         if os.path.isfile(os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1]) == False:
+                                                 urllib.urlretrieve('http://www.netitv.com'+match1[0],os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1])
+                                         thumbp=os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1]
                                 else:
-                                         thumbp=os.getcwd()+'\\resources\\media\\NetitvDefault.jpg'
+                                         thumbp=os.getcwd()+'/resources/media/NetitvDefault.jpg'
                         else:
-                                thumbp=os.getcwd()+'\\resources\\media\\NetitvDefault.jpg'
+                                thumbp=os.getcwd()+'/resources/media/NetitvDefault.jpg'
 
                         num=num+1
 		        li=xbmcgui.ListItem(str(num)+'.'+name,iconImage='', thumbnailImage=thumbp)
@@ -42,7 +42,7 @@ def Roots():
 def Channels(url,name):
         tmp=url.split('/')
         url1=tmp[0]+'/'+tmp[1]+'/'+tmp[2]+'/'+tmp[3]+'/'
-	li=xbmcgui.ListItem(u'µ±«∞Œª÷√£∫'.encode('utf8')+name)
+	li=xbmcgui.ListItem(u'ÂΩìÂâç‰ΩçÁΩÆÔºö'.encode('utf8')+name)
 	u=sys.argv[0]+"?mode=1&name="+urllib.quote_plus(name)+"&url="+urllib.quote_plus(url)
 	xbmcplugin.addDirectoryItem(int(sys.argv[1]),u,li,True)
 
@@ -68,13 +68,13 @@ def Channels(url,name):
                         if len(match1)>0:
                                 if match1[0].find('CDATA')==-1:
                                         tmppic=match1[0].split('/')
-                                        if os.path.isfile(os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1]) == False:
-                                                 urllib.urlretrieve('http://www.netitv.com'+match1[0],os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1])
-                                        thumbp=os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1]
+                                        if os.path.isfile(os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1]) == False:
+                                                 urllib.urlretrieve('http://www.netitv.com'+match1[0],os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1])
+                                        thumbp=os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1]
                                 else:
-                                        thumbp=os.getcwd()+'\\resources\\media\\NetitvDefault.jpg'
+                                        thumbp=os.getcwd()+'/resources/media/NetitvDefault.jpg'
                         else:
-                                thumbp=os.getcwd()+'\\resources\\media\\NetitvDefault.jpg'
+                                thumbp=os.getcwd()+'/resources/media/NetitvDefault.jpg'
 
                         num=num+1
 		        li=xbmcgui.ListItem(str(num)+'.'+name,iconImage='', thumbnailImage=thumbp)
@@ -100,7 +100,7 @@ def ListsA(url,name):
         match1=re.compile('<curr_page>(.+?)</curr_page>').findall(match0)
         currpage=int(match1[0])
 
-	li=xbmcgui.ListItem(u'µ±«∞Œª÷√£∫'.encode('utf8')+channelname+'->'+nodename+u' °æµ⁄'.encode('utf8')+str(currpage)+'/'+str(pagenum)+u'“≥°ø'.encode('utf8'))
+	li=xbmcgui.ListItem(u'ÂΩìÂâç‰ΩçÁΩÆÔºö'.encode('utf8')+channelname+'->'+nodename+u' „ÄêÁ¨¨'.encode('utf8')+str(currpage)+'/'+str(pagenum)+u'È°µ„Äë'.encode('utf8'))
 	u=sys.argv[0]+"?mode=2&name="+urllib.quote_plus(name)+"&url="+urllib.quote_plus(url)
 	xbmcplugin.addDirectoryItem(int(sys.argv[1]),u,li,True)
 
@@ -110,12 +110,12 @@ def ListsA(url,name):
         nodeid=match1[0]
 
         if currpage>1:
-	        li=xbmcgui.ListItem(u'…œ“ª“≥'.encode('utf8'),iconImage='', thumbnailImage=os.getcwd()+'\\resources\\media\\NetitvPageup.png')
+	        li=xbmcgui.ListItem(u'‰∏ä‰∏ÄÈ°µ'.encode('utf8'),iconImage='', thumbnailImage=os.getcwd()+'/resources/media/NetitvPageup.png')
 	        u=sys.argv[0]+"?mode=2&name="+urllib.quote_plus(name)+"&url="+urllib.quote_plus('http://www.netitv.com/'+uuid+'/newsXml/'+nodeid+'_'+str(currpage-1)+'.xml')
 	        xbmcplugin.addDirectoryItem(int(sys.argv[1]),u,li,True)
 
         if currpage<pagenum:
-	        li=xbmcgui.ListItem(u'œ¬“ª“≥'.encode('utf8'),iconImage='', thumbnailImage=os.getcwd()+'\\resources\\media\\NetitvPagedown.png')
+	        li=xbmcgui.ListItem(u'‰∏ã‰∏ÄÈ°µ'.encode('utf8'),iconImage='', thumbnailImage=os.getcwd()+'/resources/media/NetitvPagedown.png')
 	        u=sys.argv[0]+"?mode=2&name="+urllib.quote_plus(name)+"&url="+urllib.quote_plus('http://www.netitv.com/'+uuid+'/newsXml/'+nodeid+'_'+str(currpage+1)+'.xml')
 	        xbmcplugin.addDirectoryItem(int(sys.argv[1]),u,li,True)
 
@@ -127,17 +127,17 @@ def ListsA(url,name):
                 match1=re.compile('<id>(.+?)</id>').findall(info)
                 movieid=match1[0]
 
-                match1=re.compile('<pics><url><!\[CDATA\[(.+?)]]></url>').findall(info)
+                match1=re.compile('<pics><url meta="1"><!\[CDATA\[(.+?)]]></url>').findall(info)
                 if len(match1)>0:
                         if match1[0].find('CDATA')==-1:
                                 tmppic=match1[0].split('/')
-                                if os.path.isfile(os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1]) == False:
-                                        urllib.urlretrieve('http://www.netitv.com'+match1[0],os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1])
-                                thumbp=os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1]
+                                if os.path.isfile(os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1]) == False:
+                                        urllib.urlretrieve('http://www.netitv.com'+match1[0],os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1])
+                                thumbp=os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1]
                         else:
-                                thumbp=os.getcwd()+'\\resources\\media\\NetitvDefault.jpg'
+                                thumbp=os.getcwd()+'/resources/media/NetitvDefault.jpg'
                 else:
-                        thumbp=os.getcwd()+'\\resources\\media\\NetitvDefault.jpg'
+                        thumbp=os.getcwd()+'/resources/media/NetitvDefault.jpg'
 
                 num=num+1
 
@@ -145,7 +145,7 @@ def ListsA(url,name):
                 if len(match1)>0:
                          match1=re.compile('<playurls>(.+?)</url>').findall(info)
                          if len(match1)>0:
-	                         li=xbmcgui.ListItem(u'≤•∑≈£∫'.encode('utf8')+name,iconImage='', thumbnailImage=os.getcwd()+'\\resources\\media\\NetitvPLay.png')
+	                         li=xbmcgui.ListItem(u'Êí≠ÊîæÔºö'.encode('utf8')+name,iconImage='', thumbnailImage=os.getcwd()+'/resources/media/NetitvPLay.png')
                                  u=sys.argv[0]+"?mode=5&name="+urllib.quote_plus(name)+"&url="+urllib.quote_plus('|play|'+uuid+'|0|')
                                  xbmcplugin.addDirectoryItem(int(sys.argv[1]),u,li)
                          else:
@@ -175,7 +175,7 @@ def ListsB(url,name):
         match1=re.compile('<curr_page>(.+?)</curr_page>').findall(match0)
         currpage=int(match1[0])
 
-	li=xbmcgui.ListItem(u'µ±«∞Œª÷√£∫'.encode('utf8')+channelname+'->'+nodename+u' °æµ⁄'.encode('utf8')+str(currpage)+'/'+str(pagenum)+u'“≥°ø'.encode('utf8'))
+	li=xbmcgui.ListItem(u'ÂΩìÂâç‰ΩçÁΩÆÔºö'.encode('utf8')+channelname+'->'+nodename+u' „ÄêÁ¨¨'.encode('utf8')+str(currpage)+'/'+str(pagenum)+u'È°µ„Äë'.encode('utf8'))
 	u=sys.argv[0]+"?mode=2&name="+urllib.quote_plus(name)+"&url="+urllib.quote_plus(url)
 	xbmcplugin.addDirectoryItem(int(sys.argv[1]),u,li,True)
 
@@ -185,12 +185,12 @@ def ListsB(url,name):
         movieid=match1[0]
 
         if currpage>1:
-	        li=xbmcgui.ListItem(u'…œ“ª“≥'.encode('utf8'),iconImage='', thumbnailImage=os.getcwd()+'\\resources\\media\\NetitvPageup.png')
+	        li=xbmcgui.ListItem(u'‰∏ä‰∏ÄÈ°µ'.encode('utf8'),iconImage='', thumbnailImage=os.getcwd()+'/resources/media/NetitvPageup.png')
 	        u=sys.argv[0]+"?mode=3&name="+urllib.quote_plus(name)+"&url="+urllib.quote_plus('http://www.netitv.com/'+uuid+'/proXml/'+movieid+'_'+str(currpage-1)+'.xml')
 	        xbmcplugin.addDirectoryItem(int(sys.argv[1]),u,li,True)
 
         if currpage<pagenum:
-	        li=xbmcgui.ListItem(u'œ¬“ª“≥'.encode('utf8'),iconImage='', thumbnailImage=os.getcwd()+'\\resources\\media\\NetitvPagedown.png')
+	        li=xbmcgui.ListItem(u'‰∏ã‰∏ÄÈ°µ'.encode('utf8'),iconImage='', thumbnailImage=os.getcwd()+'/resources/media/NetitvPagedown.png')
 	        u=sys.argv[0]+"?mode=3&name="+urllib.quote_plus(name)+"&url="+urllib.quote_plus('http://www.netitv.com/'+uuid+'/proXml/'+movieid+'_'+str(currpage+1)+'.xml')
 	        xbmcplugin.addDirectoryItem(int(sys.argv[1]),u,li,True)
 
@@ -199,17 +199,17 @@ def ListsB(url,name):
         for info in match:
                 match1=re.compile('<name><!\[CDATA\[(.+?)]]></name>').findall(info)
                 name=match1[0]
-                match1=re.compile('<pics><url><!\[CDATA\[(.+?)]]></url>').findall(info)
+                match1=re.compile('<pics><url meta="1"><!\[CDATA\[(.+?)]]></url>').findall(info)
                 if len(match1)>0:
                         if match1[0].find('CDATA')==-1:
                                 tmppic=match1[0].split('/')
-                                if os.path.isfile(os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1]) == False:
-                                        urllib.urlretrieve('http://www.netitv.com'+match1[0],os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1])
-                                thumbp=os.getcwd()+'\\resources\\Thumbnails\\'+tmppic[len(tmppic)-1]
+                                if os.path.isfile(os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1]) == False:
+                                        urllib.urlretrieve('http://www.netitv.com'+match1[0],os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1])
+                                thumbp=os.getcwd()+'/resources/thumbnails/'+tmppic[len(tmppic)-1]
                         else:
-                                thumbp=os.getcwd()+'\\resources\\media\\NetitvDefault.jpg'
+                                thumbp=os.getcwd()+'/resources/media/NetitvDefault.jpg'
                 else:
-                        thumbp=os.getcwd()+'\\resources\\media\\NetitvDefault.jpg'
+                        thumbp=os.getcwd()+'/resources/media/NetitvDefault.jpg'
 
                 num=num+1
 	        li=xbmcgui.ListItem(str(num)+'.'+name,iconImage='', thumbnailImage=thumbp)
@@ -247,7 +247,7 @@ def Movies(url,name,thumb):
         match=re.compile('<playurls>(.+?)</playurls>').findall(match1[0])
         match1=re.compile('type="2"(.+?)<!\[CDATA\[(.+?)]]></url>').findall(match[0]) 
         if len(match1)==1:
-	        li=xbmcgui.ListItem(u'≤•∑≈£∫'.encode('utf8')+name,iconImage='', thumbnailImage=thumb)
+	        li=xbmcgui.ListItem(u'Êí≠ÊîæÔºö'.encode('utf8')+name,iconImage='', thumbnailImage=thumb)
 	        li.setInfo(type="Video",infoLabels={"Title":name,"Director":director,"Studio":studio,"Plot":plot})
 	        xbmcplugin.addDirectoryItem(int(sys.argv[1]),match1[0][1],li)
 
@@ -255,16 +255,19 @@ def Movies(url,name,thumb):
                 num=0
                 for tmp1,info in match1:
                        num=num+1
-                       fullname=name+u' °æµ⁄'.encode('utf8')+str(num)+u'ºØ°ø'.encode('utf8')
-                       li=xbmcgui.ListItem(u'≤•∑≈£∫'.encode('utf8')+fullname,iconImage='', thumbnailImage=thumb)
+                       fullname=name+u' „ÄêÁ¨¨'.encode('utf8')+str(num)+u'ÈõÜ„Äë'.encode('utf8')
+                       li=xbmcgui.ListItem(u'Êí≠ÊîæÔºö'.encode('utf8')+fullname,iconImage='', thumbnailImage=thumb)
                        li.setInfo(type="Video",infoLabels={"Title":fullname,"Director":director,"Studio":studio,"Plot":plot})
                        xbmcplugin.addDirectoryItem(int(sys.argv[1]),info,li)
 
 
 def PlayTV(url,name):
         dialog = xbmcgui.Dialog()
-        if dialog.yesno(name, u'÷±≤•Ω⁄ƒøƒø«∞÷ªƒ‹Õ®π˝µ˜”√Õ‚÷√≤•∑≈∆˜ µœ÷£¨ «∑ÒºÃ–¯£ø'.encode('utf8')):
-                xbmc.executebuiltin('System.ExecWait(\\"'+ os.getcwd()+'\\resources\\player\\eLiveMovie_Full.exe\\" '+url+')')
+        if dialog.yesno(name, u'Áõ¥Êí≠ËäÇÁõÆÁõÆÂâçÂè™ËÉΩÈÄöËøáË∞ÉÁî®Â§ñÁΩÆÊí≠ÊîæÂô®ÂÆûÁé∞ÔºåÊòØÂê¶ÁªßÁª≠Ôºü'.encode('utf8')):
+		if (os.name == 'nt'):
+                	xbmc.executebuiltin('System.ExecWait(\\"'+ os.getcwd()+'\\resources\\player\\eLiveMovie_Full.exe\\" '+url+')')
+		else:
+                	xbmc.executebuiltin('System.ExecWait(\\"wine '+ os.getcwd()+'/resources/player/eLiveMovie_Full.exe\\" '+url+')')
 
 def get_params():
         param=[]
