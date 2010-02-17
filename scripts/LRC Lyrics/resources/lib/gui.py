@@ -97,6 +97,9 @@ class GUI( xbmcgui.WindowXMLDialog ):
         self.controlId = -1
         self.allow_exception = False
         self.pOverlay = []
+        # get XBMC revision
+        self.XBMC_REVISION = get_xbmc_revision()
+
 
     def show_viz_window( self, startup=True ):
         if ( self.settings[ "show_viz" ] ):
@@ -172,7 +175,10 @@ class GUI( xbmcgui.WindowXMLDialog ):
     def get_lyrics_from_file2( self ):
         try:
             xbmc.sleep( 60 )
-            path = xbmc.Player().getPlayingFile()
+            if ( self.XBMC_REVISION < 27711 ):
+                path = xbmc.Player().getPlayingFile()
+            else:
+                path = xbmc.getInfoLabel( "Player.Filenameandpath" )
             dirname = os.path.dirname(path)
             basename = os.path.basename(path)
             filename = basename.rsplit( ".", 1 )[ 0 ]

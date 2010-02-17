@@ -6,6 +6,7 @@ Nuka1195
 
 import sys
 import os
+import re
 import xbmc
 import xbmcgui
 
@@ -48,6 +49,13 @@ def _create_base_paths():
     if ( not os.path.isdir( BASE_DATA_PATH ) ):
         os.makedirs( BASE_DATA_PATH )
 _create_base_paths()
+
+def get_xbmc_revision():
+    try:
+        rev = int(re.search("r([0-9]+)",  xbmc.getInfoLabel( "System.BuildVersion" ), re.IGNORECASE).group(1))
+    except:
+        rev = 0
+    return rev
 
 def get_keyboard( default="", heading="", hidden=False ):
     """ shows a keyboard and returns a value """
