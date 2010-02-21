@@ -52,7 +52,6 @@ class GUI( xbmcgui.WindowXMLDialog ):
         
     def refresh(self):
         self.lock.acquire()
-        self.timer = None
         xbmcgui.lock()
         try:
             #May be XBMC is not playing any media file
@@ -99,7 +98,6 @@ class GUI( xbmcgui.WindowXMLDialog ):
         self.pOverlay = []
         # get XBMC revision
         self.XBMC_REVISION = get_xbmc_revision()
-
 
     def show_viz_window( self, startup=True ):
         if ( self.settings[ "show_viz" ] ):
@@ -223,7 +221,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
     def parser_lyrics( self, lyrics):
         self.pOverlay = []
-        tag = re.compile('\[(\d\d):(\d\d)(\.\d\d|)\]')
+        tag = re.compile('\[(\d+):(\d\d)(\.\d+|)\]')
         if ( "\r\n" in lyrics ):
             sep = "\r\n"
         else:
@@ -236,10 +234,8 @@ class GUI( xbmcgui.WindowXMLDialog ):
             if ( match1 ):
                 while ( match1 ):
                     times.append( float(match1.group(1)) * 60 + float(match1.group(2)) )
-                    if (match1.group(3) != ''):
-                        x = x[10:]
-                    else:
-                        x = x[7:]
+                    y = 5 + len(match1.group(1)) + + len(match1.group(3))
+                    x = x[y:]
                     match1 = tag.match( x )
                 for time in times:
                     self.pOverlay.append( (time, x) )
@@ -291,7 +287,10 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
     def exit_script( self, restart=False ):
         self.lock.acquire()
-        if (self.timer != None): self.timer.cancel()
+        try:
+            self.timer.cancel()
+        except:
+            pass
         self.allowtimer = False
         self.lock.release()
         self.close()
@@ -351,24 +350,30 @@ class GUI( xbmcgui.WindowXMLDialog ):
         else:
             for cnt in range( 5 ):
                 song = xbmc.getInfoLabel( "MusicPlayer.Title" )
-                print "Song" + song
+                #print "Song" + song
 
                 artist = xbmc.getInfoLabel( "MusicPlayer.Artist" )
-                print "Artist" + artist                
+                #print "Artist" + artist                
                 if ( song and ( not artist or self.settings[ "use_filename" ] ) ):
                     artist, song = self.get_artist_from_filename( xbmc.Player().getPlayingFile() )
                 if ( song and ( self.song != song or self.artist != artist or force_update ) ):
                     self.artist = artist
                     self.song = song
                     self.lock.acquire()
-                    if (self.timer != None): self.timer.cancel()
+                    try:
+                        self.timer.cancel()
+                    except:
+                        pass
                     self.lock.release()
                     self.get_lyrics( artist, song )
                     break
                 xbmc.sleep( 50 )
             if (self.allowtimer and self.settings[ "smooth_scrolling" ] and self.getControl( 110 ).size() > 1):
                 self.lock.acquire()
-                if (self.timer != None): self.timer.cancel()
+                try:
+                    self.timer.cancel()
+                except:
+                    pass
                 self.lock.release()
                 self.refresh()
 

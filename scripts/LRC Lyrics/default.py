@@ -12,7 +12,7 @@ __author__ = "XBMC Lyrics Team"
 __url__ = "http://code.google.com/p/xbmc-scripting/"
 __svn_url__ = "http://xbmc-scripting.googlecode.com/svn/trunk/"
 __credits__ = "XBMC TEAM, freenode/#xbmc-scripting"
-__version__ = "1.2"
+__version__ = "1.21"
 __svn_revision__ = ""
 
 # Shared resources 
