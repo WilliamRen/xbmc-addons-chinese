@@ -234,7 +234,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             if ( match1 ):
                 while ( match1 ):
                     times.append( float(match1.group(1)) * 60 + float(match1.group(2)) )
-                    y = 5 + len(match1.group(1)) + + len(match1.group(3))
+                    y = 5 + len(match1.group(1)) + len(match1.group(3))
                     x = x[y:]
                     match1 = tag.match( x )
                 for time in times:
