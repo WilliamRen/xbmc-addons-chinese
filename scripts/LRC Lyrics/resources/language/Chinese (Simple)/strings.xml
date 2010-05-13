@@ -20,7 +20,7 @@
     <string id="208">播放列表目录</string>
     <string id="209">乱序播放列表</string>
     <string id="210">保持歌词文件兼容xbox</string>
-    <string id="211">保存歌词文件含扩展名</string>
+    <string id="211">保存歌词文件到歌手目录</string>
 
     <!-- Settings choices -->
     <string id="2070">%A - %T</string>

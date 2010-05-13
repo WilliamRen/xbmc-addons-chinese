@@ -161,7 +161,10 @@ class GUI( xbmcgui.WindowXMLDialog ):
             xbmc.sleep( 60 )
             #if ( xbmc.getInfoLabel( "MusicPlayer.Lyrics" ) ):
             #    return unicode( xbmc.getInfoLabel( "MusicPlayer.Lyrics" ), "utf-8" ), True
-            self.song_path = make_legal_filepath( unicode( os.path.join( self.settings[ "lyrics_path" ], artist.replace( "\\", "_" ).replace( "/", "_" ), song.replace( "\\", "_" ).replace( "/", "_" ) + ( "", ".lrc", )[ self.settings[ "use_extension" ] ] ), "utf-8" ), self.settings[ "compatible" ], self.settings[ "use_extension" ] )
+            if ( self.settings[ "use_extension" ] ):
+                self.song_path = make_legal_filepath( unicode( os.path.join( self.settings[ "lyrics_path" ], artist.replace( "\\", "_" ).replace( "/", "_" ), song.replace( "\\", "_" ).replace( "/", "_" ) + ".lrc" ), "utf-8" ), self.settings[ "compatible" ] )
+            else:
+                self.song_path = make_legal_filepath( unicode( os.path.join( self.settings[ "lyrics_path" ], artist.replace( "\\", "_" ).replace( "/", "_" ) + " - " + song.replace( "\\", "_" ).replace( "/", "_" ) + ".lrc" ), "utf-8" ), self.settings[ "compatible" ] )
             lyrics_file = open( self.song_path, "r" )
             lyrics = lyrics_file.read()
             lyrics_file.close()
@@ -180,7 +183,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             dirname = os.path.dirname(path)
             basename = os.path.basename(path)
             filename = basename.rsplit( ".", 1 )[ 0 ]
-            self.song_path = make_legal_filepath( unicode( os.path.join( dirname, filename + ( "", ".lrc", )[ self.settings[ "use_extension" ] ] ), "utf-8" ), self.settings[ "compatible" ], self.settings[ "use_extension" ] )
+            self.song_path = make_legal_filepath( unicode( os.path.join( dirname, filename + ".lrc" ), "utf-8" ), self.settings[ "compatible" ] )
             lyrics_file = open( self.song_path, "r" )
             lyrics = lyrics_file.read()
             lyrics_file.close()

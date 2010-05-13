@@ -20,7 +20,7 @@
     <string id="208">Playlist folder</string>
     <string id="209">Shuffle playlist</string>
     <string id="210">Keep lyrics files xbox compatible</string>
-    <string id="211">Save lyrics files with extension</string>
+    <string id="211">Save lyrics files in artist folder</string>
 
     <!-- Settings choices -->
     <string id="2070">%A - %T</string>
